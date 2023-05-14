@@ -31,9 +31,52 @@
   
   /*removes the down symbol and dropdown 
   when width<960px*/
+
+  /*
   @media screen and (max-width: 960px) {
     .fa-caret-down {
       display: none;
     }
   }
+  */
+
+  @media screen and (max-width: 960px) {
+    @media screen and (max-width: 960px) {
+
+      .dropdown-menu {
+        background: red;
+        width: 200px;
+        position: absolute;
+        top: 80px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left:11.5rem;
+       z-index:1;
+      }
+      .dropdown-menu.clicked {
+        display: none;
+      }
+      
+      .dropdown-menu li {
+        background: #1888ff;
+        cursor: pointer;
+      }
+      
+      .dropdown-menu li:hover {
+
+      background: #5cabff;
+
+      }
+      
+      .dropdown-link {
+      display: block;
+      height: auto;
+      padding: 10px;
+      text-align: center;
+      }
+      }
+  }
+
   

@@ -1,24 +1,22 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Dropdown from './Dropdown'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Button } from './Button'
+import { ClickContext } from './context/clickContext'
 
 const Navbar = () => {
 
-    const [click, setClick] = useState(false)
+    const { click, handleClick, closeMobileMenu } = useContext(ClickContext)
 
     const [dropdown, setDropdown] = useState(false)
 
-    const handleClick = () => setClick(!click)
-
-    const closeMobileMenu = () => setClick(false)
 
     /*for only services dropdown functions */
     const onMouseEnter = () => {
         if (window.innerWidth < 960) {
-            setDropdown(false)
+            setDropdown(true)
         }
         else {
             setDropdown(true)
@@ -65,6 +63,7 @@ const Navbar = () => {
                         <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
                             Services<i className='fas fa-caret-down' />
                         </Link>
+
                         {dropdown && <Dropdown />}
                     </li>
 
