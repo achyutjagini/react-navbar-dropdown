@@ -1,0 +1,287 @@
+/*
+Yes, the CSS properties defined for the "nav-menu" class will be applied to an
+HTML element that has both the "nav-menu" and "active" classes. The reason
+is that the selector ".nav-menu.active" matches an element that has both
+classes, so the CSS rules that apply to the ".nav-menu"
+class will also apply to that element.
+
+In CSS, a period (".") before a class name in a selector
+indicates that the selector should target all elements 
+ with that class. When multiple class names are used 
+together in a selector without any space between them,
+as in ".nav-menu.active", it targets elements that
+have both classes. So in this case, the CSS rules 
+or ".nav-menu" will apply to an element that has
+both the "nav-menu" and "active" classes.*/
+
+
+/*
+<ul className='nav-menu active' >
+has 2 classes*/
+/*
+
+background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%); 
+- This sets the background of the navigation bar to a linear gradient that
+ starts with a dark gray color (rgb(28, 27, 27)) at 0% and ends with a
+  slightly lighter gray color (rgb(26, 23, 23)) at 100%.
+height: 80px; - This sets the height of the navigation bar to 80 pixels.
+display: flex; - This sets the display property to "flex", which enables 
+flexbox layout on the element.
+justify-content: center; - This centers the content horizontally
+ within the navigation bar.
+align-items: center; - This centers the content vertically within the 
+navigation bar.
+font-size: 1.2rem; - This sets the font size of the text within the 
+navigation bar to 1.2 rem (or 19.2 pixels).
+*/
+
+.navbar {
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-logo {
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+  }  
+/*
+display: grid; - This sets the display property to "grid", which
+enables grid layout on the element.
+
+grid-template-columns: repeat(5, auto); - This sets the grid-template
+-columns property to repeat 5 columns, each with a width of "auto".
+This creates a grid with 5 equal-width columns.
+
+grid-gap: 10px; - This sets the gap between each grid item to 10 pixels.
+
+list-style: none; - This removes the bullet points that
+typically appear for list items.
+
+text-align: center; - This centers the text within each grid item.
+width: 70vw; - This sets the width of the navigation 
+menu to 70% of the viewport width.
+
+justify-content: end; - This aligns the grid items 
+to the end of the grid container.
+
+margin-right: 2rem; - This adds a margin of 2 rem
+(or 32 pixels) to the right side of the navigation menu.*/
+
+  .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+  }
+  
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .nav-links {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+
+  
+  .nav-links:hover {
+    background-color: #1888ff;
+    border-radius: 4px; /*makes border rounded */
+    transition: all 0.2s ease-out;
+  }
+
+  /*the symbol set to white */
+  .fa-bars {
+    color: #fff;
+  }
+  
+  /*last signup link not shown in desktop,signup button is shown*/
+  .nav-links-mobile {
+    display: none;
+  }
+  
+  /*menu icon not displayed when in full screen*/
+  /*so state of click false in beginning -ul has nav-menu class*/
+  .menu-icon {
+    display: none;
+  }
+
+
+
+@media screen and (max-width: 960px) {
+
+  /*no item with this class */
+  .NavbarItems {
+    position: relative;
+  }
+
+  /*
+  display: flex; - This sets the display property to "flex", which 
+  enables flexbox layout on the element.
+
+flex-direction: column; - This sets the direction of the flex
+ container to be vertical (top to bottom).
+ 
+width: 100%; - This sets the width of the navigation menu to 100% of its parent element.
+height: 90vh; - This sets the height of the navigation menu to 90% of the viewport height.
+
+position: absolute; - This sets the position property of 
+the navigation menu to "absolute", which positions the
+element relative to its closest positioned ancestor
+(in this case, likely the navbar).
+
+top: 80px; - This sets the distance between the top edge 
+of the navigation menu and the top edge of its closest 
+positioned ancestor (in this case, likely the navbar) to 80 pixels.
+
+left: -100%; - This sets the distance between the left edge
+ of the navigation menu and the left edge of its closest positioned ancestor to negative 100% of the width of the navigation menu. This causes the navigation menu to be positioned off the left edge of the screen and hidden from view.
+opacity: 1; - This sets the initial opacity of the navigation menu to 1, which makes it fully opaque.
+transition: all 0.5s ease; - This adds a CSS transition effect that smoothly animates changes to any CSS properties on the navigation menu. In this case, it will animate the transition of the navigation menu from its hidden state to its visible state.
+*/
+
+/*the nav menu goes down not on top from left to right anymore */
+/*from top to bottom after the nav at the top */
+
+/*  nav menu and link items pushed to left so they are not visible */
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    justify-content: start;
+  }
+
+  .nav-menu.active {
+    background: #242222;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+
+  }
+
+
+  .nav-links:hover {
+    background-color: #1888ff;
+    border-radius: 0;
+  }
+
+/*This is a CSS code block that sets the styling for a logo 
+element within a navbar. Here is a breakdown of what each line does:
+
+.navbar-logo - This is a selector that targets an 
+element with the class name "navbar-logo".
+
+position: absolute; - This sets the position property of 
+the logo element to "absolute", which positions the element
+relative to its closest positioned ancestor (in this case,
+likely the navbar).
+
+top: 0; - This sets the distance between the top edge
+of the logo element and the top edge of its closest
+positioned ancestor (in this case, likely the navbar) to 0. 
+This causes the logo element to be positioned flush against the
+top edge of the navbar.
+
+left: 0; - This sets the distance between the left edge
+ of the logo element and the left edge of its closest positioned 
+ ancestor (in this case, likely the navbar) to 0. This causes the 
+ logo element to be positioned flush against the left edge of the navbar.
+
+transform: translate(25%, 50%); - This applies a 2D translation
+ transform to the logo element, which moves it 25% of the width 
+ of its own element to the right and 50% of the height of its 
+ own element downwards.
+ 
+This is likely used to horizontally 
+center the logo element within the navbar, while also vertically
+centering it slightly below the top edge of the navbar.
+
+Therefore, the logo element will be positioned flush against the 
+top-left corner of the navbar, but will be horizontally centered 
+and slightly below the top edge of the navbar.
+
+*/
+
+
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+
+/*positioned relative to navbar */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    background: #1888ff;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #1888ff;
+    transition: 250ms;
+  }
+
+  button {
+    display: none;
+  }
+  
+}
+
