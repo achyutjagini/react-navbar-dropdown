@@ -4,7 +4,7 @@ import './Navbar.css'
 import Dropdown from './Dropdown'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Button } from './Button'
-import { ClickContext } from './context/clickContext'
+import { ClickContext } from './pages/context/clickContext'
 
 const Navbar = () => {
 
@@ -63,8 +63,9 @@ const Navbar = () => {
                         <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
                             Services<i className='fas fa-caret-down' />
                         </Link>
-
+                      
                         {dropdown && <Dropdown />}
+                      
                     </li>
 
 
